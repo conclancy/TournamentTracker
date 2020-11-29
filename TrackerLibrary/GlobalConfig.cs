@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using TrackerLibrary.DataConnections;
+using System.Configuration;
 
 namespace TrackerLibrary
 {
@@ -24,6 +25,11 @@ namespace TrackerLibrary
                 TextConnector text = new TextConnector();
                 Connections.Add(text);
             }
+        }
+
+        public static string ConnString(string name)
+        {
+            return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
     }
 }
