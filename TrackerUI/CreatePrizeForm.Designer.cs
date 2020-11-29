@@ -78,6 +78,8 @@ namespace TrackerUI
             this.prizePercentValue.Name = "prizePercentValue";
             this.prizePercentValue.Size = new System.Drawing.Size(206, 35);
             this.prizePercentValue.TabIndex = 26;
+            this.prizePercentValue.Text = "0";
+            this.prizePercentValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // prizePercentLabel
             // 
@@ -125,6 +127,8 @@ namespace TrackerUI
             this.prizeAmountValue.Name = "prizeAmountValue";
             this.prizeAmountValue.Size = new System.Drawing.Size(206, 35);
             this.prizeAmountValue.TabIndex = 28;
+            this.prizeAmountValue.Text = "0";
+            this.prizeAmountValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // orLabel
             // 
