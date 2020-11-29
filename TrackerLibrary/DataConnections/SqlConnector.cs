@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using TrackerLibrary.Models;
 
-namespace TrackerLibrary
+namespace TrackerLibrary.DataConnections
 {
     public class SqlConnector : IDataConnection
     {
