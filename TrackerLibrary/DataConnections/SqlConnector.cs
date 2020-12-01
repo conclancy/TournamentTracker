@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 using TrackerLibrary.Models;
 
@@ -9,9 +10,10 @@ namespace TrackerLibrary.DataConnections
 {
     public class SqlConnector : IDataConnection
     {
+        private const string db = "Tournaments";
         public PersonModel CreatePerson(PersonModel model)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString("Tournaments")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
                 p.Add("@FirstName", model.FirstName);
@@ -37,7 +39,7 @@ namespace TrackerLibrary.DataConnections
         {
             // The SqlClient can be swapped out for other type of SQL connections
             // The using statement creates a connection on demand to and closes it once the statement is completed
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString("Tournaments")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
 
@@ -56,5 +58,16 @@ namespace TrackerLibrary.DataConnections
 
         }
 
+        public List<PersonModel> GetPerson_All()
+        {
+            List<PersonModel> output;
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                output = connection.Query<PersonModel>("dbo.spPlayer_GetAll").ToList();
+            }
+
+            return output;
+        }
     }
 }

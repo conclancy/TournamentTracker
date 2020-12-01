@@ -53,5 +53,10 @@ namespace TrackerLibrary.DataConnections
 
             return model;
         }
+
+        public List<PersonModel> GetPerson_All()
+        {
+            return PersonFile.FullFilePath().LoadFile().ConvertToPersonModels();
+        }
     }
 }
