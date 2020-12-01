@@ -94,6 +94,7 @@ namespace TrackerUI
             this.addPlayerButton.TabIndex = 19;
             this.addPlayerButton.Text = "Add Player";
             this.addPlayerButton.UseVisualStyleBackColor = true;
+            this.addPlayerButton.Click += new System.EventHandler(this.addPlayerButton_Click);
             // 
             // selectPlayerDropDown
             // 
@@ -244,6 +245,7 @@ namespace TrackerUI
             this.removePlayerButton.TabIndex = 29;
             this.removePlayerButton.Text = "Remove Player";
             this.removePlayerButton.UseVisualStyleBackColor = true;
+            this.removePlayerButton.Click += new System.EventHandler(this.removePlayerButton_Click);
             // 
             // saveTeamButton
             // 
