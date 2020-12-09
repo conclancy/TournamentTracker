@@ -146,6 +146,7 @@ namespace TrackerUI
             this.addTeamButton.TabIndex = 16;
             this.addTeamButton.Text = "Add Team";
             this.addTeamButton.UseVisualStyleBackColor = true;
+            this.addTeamButton.Click += new System.EventHandler(this.addTeamButton_Click);
             // 
             // createPrizeButton
             // 
@@ -170,7 +171,7 @@ namespace TrackerUI
             this.tournamentPlayersListBox.ItemHeight = 30;
             this.tournamentPlayersListBox.Location = new System.Drawing.Point(300, 98);
             this.tournamentPlayersListBox.Name = "tournamentPlayersListBox";
-            this.tournamentPlayersListBox.Size = new System.Drawing.Size(342, 182);
+            this.tournamentPlayersListBox.Size = new System.Drawing.Size(342, 242);
             this.tournamentPlayersListBox.TabIndex = 18;
             // 
             // tournamentPlayersLabel
