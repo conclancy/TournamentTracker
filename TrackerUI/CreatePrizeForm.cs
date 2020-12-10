@@ -15,9 +15,16 @@ namespace TrackerUI
 {
     public partial class CreatePrizeForm : Form
     {
-        public CreatePrizeForm()
+        // This form will have an object implementing the IPrizeRequester called 'callingForm'
+        IPrizeRequester callingForm;
+
+        // Some other object implmenting the IPrizeRequester 
+        public CreatePrizeForm(IPrizeRequester caller)
         {
             InitializeComponent();
+
+            // The caller is the callingForm variable 
+            callingForm = caller;
         }
 
         private void headerLabel_Click(object sender, EventArgs e)
@@ -36,12 +43,14 @@ namespace TrackerUI
                     prizePercentValue.Text
                 );
 
+                // Pass prize data to Database AND update model with Id
                 GlobalConfig.Connection.CreatePrize(model);
 
-                placeNameValue.Text = "";
-                placeNumberValue.Text = "";
-                prizeAmountValue.Text = "0";
-                prizePercentValue.Text = "0";
+                // Pass the model back to the calling object's PrizeComplete method  
+                callingForm.PrizeComplete(model);
+
+                // Close the prize form
+                this.Close();
             }
 
             else
