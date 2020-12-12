@@ -92,7 +92,7 @@ namespace TrackerUI
                 return;
             }
 
-            // Create tournament model 
+            // Create tournament model with prizes and teams
             TournamentModel tm = new TournamentModel
             {
                 TournamentName = tournamentNameValue.Text,
@@ -101,11 +101,11 @@ namespace TrackerUI
                 EnteredTeams = selectedTeams
             };
 
-            // Create tournament entry
-            // Create prize entries
-            // Create team entries 
+            // TODO - Create matchups
 
-            // Create matchups
+            GlobalConfig.Connection.CreateTourmanet(tm);
+
+            
         }
 
         private void createPrizeButton_Click(object sender, EventArgs e)
