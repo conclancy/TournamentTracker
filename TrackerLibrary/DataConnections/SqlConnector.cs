@@ -85,7 +85,7 @@ namespace TrackerLibrary.DataConnections
             }
         }
 
-        public TournamentModel CreateTourmanet(TournamentModel model)
+        public void CreateTourmanet(TournamentModel model)
         {
             using(IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(db)))
             {
@@ -94,8 +94,6 @@ namespace TrackerLibrary.DataConnections
                 SaveTournamentPrizes(model, connection);
 
                 SaveTournamentTeams(model, connection);
-
-                return model;
             }
            
         }
